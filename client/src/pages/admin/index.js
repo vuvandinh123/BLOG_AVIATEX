@@ -1,0 +1,7 @@
+export { default as Login } from './login'
+export { default as Dashboard } from './dashboard'
+export { default as Posts } from './post'
+export { default as Works } from './works'
+export { default as ListRecruitment } from './recruitment'
+export { default as ContactAdmin } from './contact'
+export { default as Setting } from './setting'
