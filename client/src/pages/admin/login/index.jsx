@@ -60,7 +60,7 @@ const Login = () => {
           <div className="absolute bg-black opacity-60 inset-0 z-0" />
           <form
             onSubmit={handleSubmit}
-            className="py-10 p-10  z-20 bg-white rounded-xl"
+            className="py-10 p-10 w-full lg:w-max h-screen lg:h-max   z-20 bg-white rounded-xl"
           >
             <h1 className="text-center font-bold text-3xl mb-5">ĐĂNG NHẬP</h1>
             <div className="mb-6">
@@ -75,7 +75,7 @@ const Login = () => {
                 value={data.username}
                 name="username"
                 onChange={(e) => setData({ ...data, username: e.target.value })}
-                className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-blue-400 rounded"
+                className="border bg-gray-100 lg:min-w-96 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-blue-400 rounded"
                 placeholder="Email hoặc tên đăng nhập"
               />
             </div>
@@ -90,7 +90,7 @@ const Login = () => {
                 type="password"
                 value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
-                className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-blue-400 rounded"
+                className="border bg-gray-100 py-2 px-4 w-full outline-none focus:ring-2 focus:ring-blue-400 rounded"
                 placeholder="Nhập mật khẩu"
               />
             </div>

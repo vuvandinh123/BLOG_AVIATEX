@@ -139,13 +139,13 @@ const Posts = () => {
                 {/* end card header */}
                 {/* card body  */}
                 <div className="flex-auto block py-8 pt-6 px-9 shadow-md">
-                  <div className="flex items-center justify-between mb-10 gap-2 ">
+                  <div className="flex flex-wrap  items-center justify-between mb-10 gap-2 ">
                     <div>Lọc bài viết:</div>
-                    <div className="flex items-center gap-2">
-                      <div>
+                    <div className="flex flex-wrap  lg:flex-nowrap items-center gap-2">
+                      <div className="basis-full lg:max-w-[200px]">
                         <select
                           name=""
-                          className="px-5 max-w-[200px] h-[35px] bg-white outline-none border rounded-md"
+                          className="px-5  w-full h-[35px] bg-white outline-none border rounded-md"
                           onChange={() => {
                             setFilter({
                               ...filter,
@@ -160,10 +160,10 @@ const Posts = () => {
                           <option value="draft">Không hiển thị (nháp)</option>
                         </select>
                       </div>
-                      <div>
+                      <div className="basis-full lg:max-w-[200px]">
                         <select
                           name=""
-                          className="px-5 h-[35px] max-w-[200px] bg-white outline-none border rounded-md"
+                          className="px-5 h-[35px] w-full lg:max-w-[200px] bg-white outline-none border rounded-md"
                           onChange={() => {
                             setFilter({
                               ...filter,
@@ -181,7 +181,7 @@ const Posts = () => {
                           ))}
                         </select>
                       </div>
-                      <div>
+                      <div className="basis-full">
                         <input
                           type="text"
                           placeholder="Tìm kiếm..."
@@ -192,7 +192,7 @@ const Posts = () => {
                     </div>
                   </div>
                   <div className="overflow-x-auto">
-                    <table className="w-full my-0 align-middle text-dark border-neutral-200">
+                    <table className="w-full overflow-auto my-0 align-middle text-dark border-neutral-200">
                       <thead className="align-bottom">
                         <tr className="font-semibold  uppercase text-[0.95rem] text-secondary-dark">
                           <th className="pb-3 text-start min-w-[175px]">
@@ -204,8 +204,8 @@ const Posts = () => {
                           <th className="pb-3 text-center min-w-[100px]">
                             NGÀY TẠO
                           </th>
-                          <th className="pb-3  text-center ">TRẠNG THÁI</th>
-                          <th className="pb-3 text-end min-w-[50px]">
+                          <th className="pb-3  text-center min-w-[100px]">TRẠNG THÁI</th>
+                          <th className="pb-3 text-end min-w-[100px]">
                             CHI TIẾT
                           </th>
                         </tr>
@@ -216,9 +216,9 @@ const Posts = () => {
                             return (
                               <tr
                                 key={post.id}
-                                className="border-b border-dashed "
+                                className="border-b  border-dashed "
                               >
-                                <td className="p-3 pl-0">
+                                <td className="p-3 min-w-[500px] pl-0 w-max">
                                   <div className="flex ">
                                     <div className="relative inline-block shrink-0 rounded-md overflow-hidden me-3">
                                       <img
@@ -227,7 +227,7 @@ const Posts = () => {
                                         alt
                                       />
                                     </div>
-                                    <div className="flex flex-col justify-start">
+                                    <div className="flex flex-col  justify-start">
                                       <Link
                                         to={`/admin/bai-viet/chinh-sua/${post.id}`}
                                         className="mb-1  transition-colors duration-200 ease-in-out text- text-secondary-inverse hover:text-primary"

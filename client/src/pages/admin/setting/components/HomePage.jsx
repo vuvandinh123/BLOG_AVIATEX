@@ -46,20 +46,33 @@ const HomePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // if (oldImages.banner_home) {
-    //   await DeleteImage(oldImages.banner_home);
-    // }
-    // if (oldImages.image_about) {
-    //   await DeleteImage(oldImages.image_about);
-    // }
+    console.log(images);
+    if (
+      data.title_home === "" ||
+      data.banner_home === "" ||
+      data.image_about === "" ||
+      data.youtube_about === "" ||
+      data.description_about === "" ||
+      data.title_product === "" ||
+      data.description_product === ""
+    ) {
+      toast.error("Vui lòng điền đầy đủ thông tin");
+      return;
+    }
     let img1 = images.banner_home;
     if (typeof images.banner_home === "object") {
-      const res = await UploadImage(images.banner_home);
-      img1 = res.data.fileName;
+      await DeleteImage(oldImages.banner_home);
+      try {
+        const res = await UploadImage(images.banner_home);
+        img1 = res.data.fileName;
+      } catch (error) {
+        console.log(error);
+      }
     }
     let img2 = images.image_about;
     if (typeof images.image_about === "object") {
       const res = await UploadImage(images.image_about);
+      await DeleteImage(oldImages.image_about);
       img2 = res.data.fileName;
     }
     const newData = {
@@ -74,7 +87,7 @@ const HomePage = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-5 flex justify-between items-center">
+      <div className="mb-5 flex lg:flex-row flex-col justify-between items-center">
         <h1 className="font-bold text-xl">Chỉnh sửa trang chủ</h1>
         <button className="bg-green-500 text-white uppercase px-3 py-2 rounded-md">
           Cập nhật
@@ -138,19 +151,19 @@ const HomePage = () => {
             className="w-full border p-2 rounded-md outline-none mb-2"
           />
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          <label>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <label className="col-span-1  block shrink-0">
             {images.image_about && typeof images.image_about === "object" ? (
               <img
                 src={URL.createObjectURL(images.image_about)}
-                className="h-[315px]"
+                className="lg:h-[315px] w-full shrink-0"
                 alt=""
               />
             ) : (
               <img
-                src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg"
+                src={AppURL.ImageUrl + data.image_about}
                 alt=""
-                className="h-[315px]"
+                className="lg:h-[315px] w-full shrink-0"
               />
             )}
 
@@ -165,7 +178,7 @@ const HomePage = () => {
               className="hidden"
             />
           </label>
-          <div>
+          <div className="col-span-1">
             <iframe
               width={560}
               className="max-w-full"
@@ -178,7 +191,7 @@ const HomePage = () => {
               allowFullScreen
             />
           </div>
-          <div className="col-span-2">
+          <div className="lg:col-span-2 col-span-1">
             <Editor
               apiKey="pkujmrtdapk72uundfzjrz4n8oyk7317vzss52lu4wpm94pj"
               onEditorChange={handleEditorChange}

@@ -70,7 +70,7 @@ const EditPost = () => {
   };
   return (
     <form onSubmit={handleSubmitSavePost}>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-wrap justify-between items-center">
         <h1 className="text-2xl uppercase mb-5 font-bold">Thêm bài viết</h1>
         <div className="flex items-center gap-3">
           <Link
@@ -95,8 +95,8 @@ const EditPost = () => {
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-3 mt-5">
-        <div className="col-span-3">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 mt-5">
+        <div className="col-span-1 lg:col-span-3">
           <div className="relative mb-4">
             <label
               htmlFor="title"
@@ -141,7 +141,7 @@ const EditPost = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="col-span-1">
           <Category setData={setData} data={data}></Category>
           <ImageUpload setImage={setImage} image={image}></ImageUpload>
         </div>

@@ -25,7 +25,7 @@ class UploadController {
                     filePath: `/uploads/${filename}`,
                     fileName: filename
                 }
-            })
+            }).send(res);
         }
         try {
             await fs.promises.unlink(filePath);
@@ -39,6 +39,7 @@ class UploadController {
         } catch (error) {
             throw new BadRequestError('Failed to delete file');
         }
+
     }
 }
 module.exports = UploadController

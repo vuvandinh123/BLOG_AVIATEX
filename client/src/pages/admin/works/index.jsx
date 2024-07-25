@@ -2,19 +2,13 @@
 import { toast } from "keep-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  ChangeStatusPost,
-  DeletePostByAdmin,
-  GetAllPostByAdmin,
-} from "../../../service/post";
+
 import { useToTop } from "../../../hook";
 import moment from "moment";
 import { AppURL } from "../../../api/AppURL";
 import { FiEdit } from "react-icons/fi";
 import { GoTrash } from "react-icons/go";
 import { DeleteImage } from "../../../service/upload";
-import { MdOutlineToggleOff, MdToggleOn } from "react-icons/md";
-import { GetAllTopicByAdmin } from "../../../service/topic";
 import { debounce } from "lodash";
 import PaginationPost from "../../../components/admin/paginations/Pagination";
 import { DeleteWorkByAdmin, GetAllWorkByAdmin } from "../../../service/work";
@@ -71,7 +65,6 @@ const Works = () => {
       search: e.target.value,
     });
     setPagination({ ...pagination, activePage: 1 });
-
   }, 500);
 
   return (
@@ -104,7 +97,7 @@ const Works = () => {
                 {/* end card header */}
                 {/* card body  */}
                 <div className="flex-auto block py-8 pt-6 px-9 shadow-md">
-                  <div className="flex items-center justify-between mb-10 gap-2 ">
+                  <div className="flex flex-wrap items-center justify-between mb-10 gap-2 ">
                     <div>Lọc :</div>
                     <div className="flex items-center gap-2">
                       <div>
@@ -121,16 +114,16 @@ const Works = () => {
                     <table className="w-full my-0 align-middle text-dark border-neutral-200">
                       <thead className="align-bottom">
                         <tr className="font-semibold border-b  uppercase text-[0.95rem] text-secondary-dark">
-                          <th className="pb-3 text-start min-w-[100px]">
+                          <th className="pb-3  text-start min-w-[170px]">
                             HÌNH ẢNH
                           </th>
-                          <th className="pb-3 text-start min-w-[175px]">
+                          <th className="pb-3 text-start min-w-[300px]">
                             Tiêu đề
                           </th>
                           <th className="pb-3 text-center min-w-[100px]">
                             NGÀY TẠO
                           </th>
-                          <th className="pb-3 text-end min-w-[50px]">
+                          <th className="pb-3 text-end min-w-[100px]">
                             CHI TIẾT
                           </th>
                         </tr>
@@ -143,7 +136,7 @@ const Works = () => {
                                 key={item.id}
                                 className="border-b border-dashed "
                               >
-                                <td className="w-[200px] pl-0">
+                                <td className=" pl-0">
                                   <img
                                     src={`${AppURL.ImageUrl}${item.thumbnail}`}
                                     className="w-[150px] h-[70px] object-cover inline-block shrink-0 "
@@ -152,7 +145,10 @@ const Works = () => {
                                 </td>
                                 <td className="p-3 pl-0">
                                   <div className="flex flex-col justify-start">
-                                    <Link to={`/admin/hoat-dong/chinh-sua/${item.id}`} className="mb-1 capitalize  transition-colors duration-200 ease-in-out text- text-secondary-inverse hover:text-primary">
+                                    <Link
+                                      to={`/admin/hoat-dong/chinh-sua/${item.id}`}
+                                      className="mb-1 capitalize  transition-colors duration-200 ease-in-out text- text-secondary-inverse hover:text-primary"
+                                    >
                                       {item.name}
                                     </Link>
                                   </div>

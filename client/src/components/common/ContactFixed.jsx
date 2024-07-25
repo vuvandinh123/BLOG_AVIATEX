@@ -54,7 +54,7 @@ const ContactFixed = () => {
         </li>
         <li>
           <a
-            href="https://www.google.com/maps/place/137+Tr%C6%B0%C6%A1ng+V%C4%83n+Bang,+Ph%C6%B0%E1%BB%9Dng+Th%E1%BA%A1nh+M%E1%BB%B9+L%E1%BB%A3i,+Qu%E1%BA%ADn+2,+H%E1%BB%93+Ch%C3%AD+Minh+70000,+Vi%E1%BB%87t+Nam/@10.7783685,106.7510223,17z/data=!3m1!4b1!4m6!3m5!1s0x317525db84987b1f:0x629cc674906db4a1!8m2!3d10.7783632!4d106.7535972!16s%2Fg%2F11j8gz_t8d?hl=vi&entry=ttu"
+            href={data?.map}
             target="_blank"
             className="bg-red-500 relative  h-[50px] w-[50px] border-2 border-white rounded-full flex items-center justify-center"
           >

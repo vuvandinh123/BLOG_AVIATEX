@@ -3,7 +3,6 @@ import { axiosInstanceAdmin } from "../api/axiosInstanceConfig"
 
 export const UploadImage = async (file) => {
     verifyToken(axiosInstanceAdmin)
-
     const formData = new FormData();
     formData.append('image', file);
     const resposeve = await axiosInstanceAdmin.post('/upload', formData, {

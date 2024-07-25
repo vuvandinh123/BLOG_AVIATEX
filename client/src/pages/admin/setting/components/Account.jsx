@@ -5,21 +5,15 @@ import {
 } from "../../../../service/user";
 import { toast } from "sonner";
 import ModalChangePassowrd from "./ModalChangePassowrd";
-import { AppURL } from "../../../../api/AppURL";
-import { DeleteImage, UploadImage } from "../../../../service/upload";
 
 const Account = () => {
   const [data, setData] = useState({});
   const [changePassword, setChangePassword] = useState(false);
-  const [image, setImage] = useState(null);
-  const [oldImage, setOldImage] = useState(null);
   useEffect(() => {
     (async () => {
       try {
         const res = await GetAccount();
         setData(res.data);
-        setImage(res.data.avatar);
-        setOldImage(res.data.avatar);
       } catch (error) {
         toast.error("Lấy thông tin lỗi " + error.message);
       }
@@ -28,17 +22,9 @@ const Account = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let img = image;
-      if (img && typeof img === "object") {
-        const upload = await UploadImage(image);
-        img = upload.data.fileName;
-        if (typeof oldImage === "string") await DeleteImage(oldImage);
-      }
-
       const res = await UpdateUsernameAndNameUser({
         email: data.email,
         name: data.name,
-        avatar: img,
       });
       if (res.status === 200) {
         toast.success("Cập nhật thành công");
@@ -55,12 +41,11 @@ const Account = () => {
 
       <form action="" onSubmit={handleSubmit}>
         <div className="flex justify-end">
-          <button className="bg-green-500 text-white uppercase px-3 py-2 rounded-md">
+          <button className="bg-green-500 text-white uppercase text-sm px-2 mt-2 lg:mt-0 lg:px-3 py-2 rounded-md">
             Cập nhật
           </button>
         </div>
         <div className="grid grid-cols-12 gap-5 mt-5">
-          
           <div className="col-span-12">
             <div>
               <label htmlFor="name" className="mb-2 block">
@@ -76,7 +61,7 @@ const Account = () => {
                 className="w-full border px-3 py-2 outline-none rounded-md"
               />
             </div>
-            <div className="grid grid-cols-2 gap-3 ">
+            <div className="grid lg:grid-cols-2 gap-3 ">
               <div className="mt-3">
                 <label htmlFor="name" className="mb-2 block">
                   Tên tài khoản

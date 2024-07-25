@@ -139,13 +139,13 @@ const ListRecruitment = () => {
                 {/* end card header */}
                 {/* card body  */}
                 <div className="flex-auto block py-8 pt-6 px-9 shadow-md">
-                  <div className="flex items-center justify-between mb-10 gap-2 ">
+                  <div className="flex flex-wrap items-center justify-between mb-10 gap-2 ">
                     <div>Lọc bài viết:</div>
-                    <div className="flex items-center gap-2">
-                      <div>
+                    <div className="flex flex-wrap items-center gap-2">
+                      <div className="basis-full lg:max-w-[200px]">
                         <select
                           name=""
-                          className="px-5 max-w-[200px] h-[35px] bg-white outline-none border rounded-md"
+                          className="px-5 w-full lg:max-w-[200px] h-[35px] bg-white outline-none border rounded-md"
                           onChange={() => {
                             setFilter({
                               ...filter,
@@ -160,10 +160,10 @@ const ListRecruitment = () => {
                           <option value="draft">Không hiển thị (nháp)</option>
                         </select>
                       </div>
-                      <div>
+                      <div className="basis-full lg:max-w-[200px]">
                         <select
                           name=""
-                          className="px-5 h-[35px] max-w-[200px] bg-white outline-none border rounded-md"
+                          className="px-5 h-[35px] w-full  bg-white outline-none border rounded-md"
                           onChange={() => {
                             setFilter({
                               ...filter,
@@ -181,12 +181,12 @@ const ListRecruitment = () => {
                           ))}
                         </select>
                       </div>
-                      <div>
+                      <div className="basis-full lg:max-w-[400px]">
                         <input
                           type="text"
                           placeholder="Tìm kiếm..."
                           onChange={handleChangeSearch}
-                          className="px-5 h-[35px] border rounded-md  pr-36 outline-none w-full"
+                          className="px-5 h-[35px] w-full border rounded-md  pr-36 outline-none w-full"
                         />
                       </div>
                     </div>
@@ -195,17 +195,17 @@ const ListRecruitment = () => {
                     <table className="w-full my-0 align-middle text-dark border-neutral-200">
                       <thead className="align-bottom">
                         <tr className="font-semibold  uppercase text-[0.95rem] text-secondary-dark">
-                          <th className="pb-3 text-start min-w-[175px]">
+                          <th className="pb-3 text-start min-w-[300px] lg:min-w-[175px]">
                             Tiêu đề
                           </th>
-                          <th className="pb-3 text-center min-w-[100px]">
+                          <th className="pb-3 text-center min-w-[200px]">
                             PHÒNG BAN
                           </th>
                           <th className="pb-3 text-center min-w-[100px]">
                             NGÀY TẠO
                           </th>
-                          <th className="pb-3  text-center ">TRẠNG THÁI</th>
-                          <th className="pb-3 text-end min-w-[50px]">
+                          <th className="pb-3  text-center min-w-[100px]">TRẠNG THÁI</th>
+                          <th className="pb-3 text-end min-w-[100px]">
                             CHI TIẾT
                           </th>
                         </tr>

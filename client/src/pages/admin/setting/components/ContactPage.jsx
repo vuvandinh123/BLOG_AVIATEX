@@ -10,6 +10,7 @@ const ContactPage = () => {
     instagram: "",
     zalo: "",
     message: "",
+    map:"",
   });
   useEffect(() => {
     (async () => {
@@ -74,6 +75,19 @@ const ContactPage = () => {
           value={data.message}
           onChange={(e) => setData({ ...data, message: e.target.value })}
           placeholder="link message"
+          className="w-full px-3 py-2 rounded-md border outline-none"
+        />
+      </div>
+      <div className="mb-2">
+        <label className="mb-2 block" htmlFor="">
+          MAP
+        </label>
+        <input
+          type="text"
+          name="map"
+          value={data.map}
+          onChange={(e) => setData({ ...data, map: e.target.value })}
+          placeholder="link map"
           className="w-full px-3 py-2 rounded-md border outline-none"
         />
       </div>

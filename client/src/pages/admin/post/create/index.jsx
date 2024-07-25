@@ -51,32 +51,32 @@ const CreatePost = () => {
   };
   return (
     <form onSubmit={handleSubmitAddPost}>
-      <div className="flex justify-between items-center">
+      <div className="flex flex-wrap justify-between items-center">
         <h1 className="text-2xl uppercase mb-5 font-bold">Thêm bài viết</h1>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <Link
             to={"/admin/bai-viet"}
-            className="inline-block border uppercase px-5 py-2 rounded-md bg-gray-100 text-red-600 "
+            className="inline-block text-sm border uppercase px-5 py-2 rounded-md bg-gray-100 text-red-600 "
           >
             HỦY
           </Link>
           <button
             type="submit"
             onClick={() => setTypeSave("draft")}
-            className="px-3 py-2 bg-red-500 rounded-md uppercase text-white"
+            className="px-3 py-2 text-sm bg-red-500 rounded-md uppercase text-white"
           >
             Lưu nháp
           </button>
           <button
             type="submit"
             onClick={() => setTypeSave("publish")}
-            className="px-3 py-2 bg-green-500 rounded-md uppercase text-white"
+            className="px-3 py-2 text-sm bg-green-500 rounded-md uppercase text-white"
           >
             Lưu và hiển thị
           </button>
         </div>
       </div>
-      <div className="grid grid-cols-4 gap-3 mt-5">
+      <div className="grid  lg:grid-cols-4 gap-3 mt-5">
         <div className="col-span-3">
           <div className="relative mb-4">
             <label
@@ -121,7 +121,7 @@ const CreatePost = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="col-span-3 lg:col-span-1">
           <Category setData={setData} data={data}></Category>
           <ImageUpload setImage={setImage} image={image}></ImageUpload>
         </div>

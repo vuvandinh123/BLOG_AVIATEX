@@ -91,7 +91,7 @@ const ContactAdmin = () => {
                 {/* end card header */}
                 {/* card body  */}
                 <div className="flex-auto block py-8 pt-6 px-9 shadow-md">
-                  <div className="flex items-center justify-between mb-10 gap-2 ">
+                  <div className="flex flex-wrap items-center justify-between mb-10 gap-2 ">
                     <div>Lọc :</div>
                     <div className="flex items-center gap-2">
                       <div>
@@ -123,7 +123,7 @@ const ContactAdmin = () => {
                           <th className="pb-3 text-center min-w-[100px]">
                             NGÀY TẠO
                           </th>
-                          <th className="pb-3 text-end min-w-[50px]">
+                          <th className="pb-3 text-end min-w-[100px]">
                             CHI TIẾT
                           </th>
                         </tr>
