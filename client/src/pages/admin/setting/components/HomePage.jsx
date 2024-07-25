@@ -46,7 +46,6 @@ const HomePage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(images);
     if (
       data.title_home === "" ||
       data.banner_home === "" ||
